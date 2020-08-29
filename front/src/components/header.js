@@ -47,10 +47,10 @@ export default () => {
                         <Link className="nav-link" to="/">Home</Link>
                     </NavItem>
                     <NavItem>
-                        <Link className="nav-link" to="/user">Profil</Link>
+                        <Link className="nav-link" to="/user">Profile</Link>
                     </NavItem>
                     <NavItem>
-                        <Link className="nav-link" to="/challenges">Wyzwania</Link>
+                        <Link className="nav-link" to="/challenges">Challenges</Link>
                     </NavItem>
                     <NavItem>
                         <Link className="nav-link" to="/user">Ranking</Link>
@@ -73,7 +73,7 @@ export default () => {
                     </DropdownMenu>
                     </UncontrolledDropdown>
                 </Nav>
-                <NavbarText>Podejmij wyzwanie</NavbarText>
+                <NavbarText>Take on a challenge</NavbarText>
                 </Collapse>
             </Navbar>
         </Header>
