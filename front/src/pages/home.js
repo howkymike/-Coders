@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Background = styled.div`
     background-image: url("/background.jpg");
-    height: 100%; 
+    flex: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

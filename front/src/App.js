@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main` 
     flex: auto;
+    display: flex;
 `;
 
 function App() {
