@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 
 import AnimalInfo from '../components/animalInfo';
+import LastChallenges from '../components/lastChallenges';
 import Badge from '../components/badge';
 
 const Wrapper = styled.div`
@@ -18,7 +19,7 @@ const Header = styled.div`
 
 
 export default () => {
-    
+
     return(
         <Wrapper>
             <Container>
@@ -28,6 +29,8 @@ export default () => {
                 </Header>
                 <Badge>Twój pupil</Badge>
                 <AnimalInfo />
+                <Badge>Ostatnie wyzwania</Badge>
+                <LastChallenges />
             </Container>
         </Wrapper>
     );
