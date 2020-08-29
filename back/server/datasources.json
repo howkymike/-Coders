@@ -1,12 +1,12 @@
 {
   "db": {
-    "host": "localhost",
+    "host": "cluster0.xtog0.mongodb.net",
     "port": 27017,
-    "url": "",
+    "url": "mongodb+srv://hacknarok:hacknarok@cluster0.xtog0.mongodb.net/back?retryWrites=true&w=majority",
     "database": "back",
-    "password": "",
+    "password": "hacknarok",
     "name": "db",
-    "user": "",
+    "user": "hacknarok",
     "useNewUrlParser": true,
     "connector": "mongodb"
   }
