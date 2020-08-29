@@ -12,8 +12,11 @@
     "url": {
       "type": "string"
     },
-    "lastChallenge": {
-      "type": "number"
+    "currentChallenge": {
+      "type": "array"
+    },
+    "finishedChallenges": {
+      "type": "array"
     }
   },
   "validations": [],

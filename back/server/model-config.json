@@ -46,5 +46,9 @@
   "ranking": {
     "dataSource": "db",
     "public": true
+  },
+  "startChallange": {
+    "dataSource": "db",
+    "public": true
   }
 }
