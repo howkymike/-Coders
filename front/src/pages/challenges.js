@@ -55,7 +55,7 @@ export default () => {
         <Wrapper>
             <Container>
                 <Header>
-                    <h4>Podejmij wyzwania</h4>
+                    <h4>Take on a challange</h4>
                     <hr />
                 </Header>
                 { loading ?

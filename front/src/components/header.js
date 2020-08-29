@@ -36,7 +36,7 @@ export default () => {
     return(
         <Header>
             <Navbar light expand="md">
-                <NavbarBrand href="/">Nazwa_naszej_aplikacji</NavbarBrand>
+                <NavbarBrand href="/">George</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
