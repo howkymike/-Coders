@@ -46,10 +46,10 @@ export default () => {
                 <Wrapper>
                     <Progress striped color="success" value="50">Lvl1. 10/20</Progress>
                 </Wrapper>
-                <Name> &lt;nazwa_pupila&gt; </Name>
+                <Name> &lt;Sven&gt; </Name>
                 <ButtonWrapper>
-                    <Button color="success">Baw się</Button>
-                    <Button color="success">Ustawienia</Button>
+                    <Button color="success">Pet</Button>
+                    <Button color="success">Settings</Button>
                 </ButtonWrapper>
             </Frame>
         </Wrapper>

@@ -31,18 +31,18 @@ export default () => {
         <Wrapper>
             <Container>
                 <Header>
-                    <h4>Dodaj nowe wyzwanie</h4>
+                    <h4>Submit a new challange</h4>
                     <hr />
                 </Header>
                 <Form>
                 <FormGroup>
-                    <Label for="name">Nazwa Wyzwania</Label>
+                    <Label for="name">Challenge name</Label>
                     <Input type="text" id="name" placeholder="Podaj nazwę dla twojego wyzwania" value={ form.name } onChange={ e => setFormField("name", e.target.value) }/>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="category">Kategoria</Label>
+                    <Label for="category">Category</Label>
                     <Input type="select" id="category" value={ form.name } onChange={ e => setFormField("category", e.target.value) }>
-                        <option value="" disabled>Wybierz kategorie z dostępnych</option>
+                        <option value="" disabled>Choose avaliable category</option>
                         { ["it", "sport", "kek"].map( (value, key) => (
                             <option key={ key } value={ value }>{ value }</option>
                         )) }
@@ -50,13 +50,13 @@ export default () => {
                 </FormGroup>
                 <FormGroup>
                     <Label for="desc">Opis</Label>
-                    <Input type="textarea" id="desc" placeholder="Krótki opis wyzwania" value={ form.desc } onChange={ e => setFormField("desc", e.target.value) } />
+                    <Input type="textarea" id="desc" placeholder="Short description of a challenge" value={ form.desc } onChange={ e => setFormField("desc", e.target.value) } />
                 </FormGroup>
                 <hr />
                 <FormGroup>
-                    <Label for="verification">Metoda weryfikacji</Label>
+                    <Label for="verification">verification method</Label>
                     <Input type="select" id="verification" value={ form.verification } onChange={ e => setFormField("verification", e.target.value) }>
-                        <option value="" disabled>Wybierz z dostępnych metod weryfikacji</option>
+                        <option value="" disabled>Choose from avaliable methods of verification</option>
                         { [{val: "question", name:"pytanie"}, {val:"mod", name:"potwierdzenie przez moderatora"}].map( (value, key) => (
                             <option key={ key } value={ value.val }>{ value.name }</option>
                         )) }
@@ -64,13 +64,13 @@ export default () => {
                 </FormGroup>
                 { form.verification === "question" && 
                     <FormGroup>
-                        <Label for="question">Pytanie</Label>
+                        <Label for="question">Question</Label>
                         <Input type="text" id="question" value={ form.question } onChange={ e => setFormField("question", e.target.value) } placeholder="Podaj pytanie konieczne do potwierdzenia wyzwania" />
-                        <Label for="answer">Odpowiedź</Label>
+                        <Label for="answer">Answear</Label>
                         <Input type="text" id="answer" value={ form.answer } onChange={ e => setFormField("answer", e.target.value) } placeholder="Poprawna odpowiedź" />
                     </FormGroup>
                 }
-                <Button color="primary" size="lg" block>Dodaj</Button>
+                <Button color="primary" size="lg" block>Add</Button>
                 </Form>
             </Container>
         </Wrapper>
