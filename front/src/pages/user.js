@@ -19,14 +19,25 @@ export const Header = styled.div`
     padding-bottom: 1em;
 `;
 
+const Background = styled.div`
+    background-image: url("/piesoback.gif");
+    flex: auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: -1;
+`;
+
 
 export default () => {
 
     let { user } = useContext(UserContext);
 
     return(
+        <Background>
         <Wrapper>
-            <Container>
+            <Container className="themed-container" fluid={true}>
                 <Header>
                     <h4>Witaj &lt;nazwa_uzytkownika&gt;!</h4>
                     <hr />
@@ -37,5 +48,6 @@ export default () => {
                 <LastChallenges />
             </Container>
         </Wrapper>
+        </Background>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Background = styled.div`
-    background-image: url("/background.jpg");
+    background-image: url("/backgwithgff.gif");
     flex: auto;
     background-position: center;
     background-repeat: no-repeat;
