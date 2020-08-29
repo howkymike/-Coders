@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import {
     Collapse,
@@ -17,6 +17,8 @@ import {
 
 import {Link} from 'react-router-dom';
 
+import { UserContext } from '../context/userContext';
+
 const Header = styled.header`
     min-height: 4em;
     background-color: #e2e2e2;
@@ -30,6 +32,7 @@ const Header = styled.header`
 
 export default () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { login } = useContext(UserContext);
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -57,7 +60,7 @@ export default () => {
                         Options
                     </DropdownToggle>
                     <DropdownMenu right>
-                        <DropdownItem>
+                        <DropdownItem onClick={ () => login() }>
                         Option 1
                         </DropdownItem>
                         <DropdownItem>

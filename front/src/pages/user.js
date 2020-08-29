@@ -39,7 +39,7 @@ export default () => {
         <Wrapper>
             <Container className="themed-container" fluid={true}>
                 <Header>
-                    <h4>Witaj &lt;nazwa_uzytkownika&gt;!</h4>
+                    <h4>Witaj {user.name}!</h4>
                     <hr />
                 </Header>
                 <Badge>Twój pupil</Badge>

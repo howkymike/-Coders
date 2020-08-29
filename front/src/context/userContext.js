@@ -8,7 +8,7 @@ export default ({children}) => {
 
     const login = (login, password) => {
         // zapytanie do api
-
+        console.log("KARWASZ");
         setUser({
             logged: true,
             id: "33",
