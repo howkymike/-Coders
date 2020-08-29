@@ -47,7 +47,7 @@ export default () => {
                         <Link className="nav-link" to="/user">Profil</Link>
                     </NavItem>
                     <NavItem>
-                        <Link className="nav-link" to="/user">Wyzwania</Link>
+                        <Link className="nav-link" to="/challenges">Wyzwania</Link>
                     </NavItem>
                     <NavItem>
                         <Link className="nav-link" to="/user">Ranking</Link>

@@ -6,13 +6,13 @@ import AnimalInfo from '../components/animalInfo';
 import LastChallenges from '../components/lastChallenges';
 import Badge from '../components/badge';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     padding: 2em;
 
     text-align: center;
 `;
 
-const Header = styled.div`
+export const Header = styled.div`
     margin-bottom: 2em;
     padding-bottom: 1em;
 `;

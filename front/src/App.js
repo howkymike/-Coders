@@ -8,6 +8,8 @@ import Footer from './components/footer';
 import Home from './pages/home';
 import Animal from './pages/animal';
 import User from './pages/user';
+import Challenges from './pages/challenges';
+import AddChallenge from './pages/addChallenge';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +41,12 @@ function App() {
                     </Route>
                     <Route path="/user">
                         <User />
+                    </Route>
+                    <Route path="/challenges/add">
+                        <AddChallenge />
+                    </Route>
+                    <Route path="/challenges">
+                        <Challenges />
                     </Route>
                     <Route path="/">
                         <Home />

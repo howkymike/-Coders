@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Challenge from './challengeMin';
@@ -10,7 +10,19 @@ const Wrapper = styled.div`
 
 export default () => {
 
-    let challenges = [ "1", "2", "3", "4", "5", "6" ];
+    let [challenges, setChallenges] = useState([]);
+
+    useEffect( () => {
+        fetch("http://127.0.0.1:5001/api/challenges/").then( res => {
+            return res.json();
+        }).then(json => {
+            setChallenges(
+                json.map( value => value.id )
+            );
+        }).catch(err => {
+            console.log(err);
+        });
+    }, []);
 
     return(
         <Wrapper>
