@@ -17,7 +17,7 @@
     "exp": {
       "type": "number",
       "required": true
-    }
+    },
     "desc": {
       "type": "string"
     }
