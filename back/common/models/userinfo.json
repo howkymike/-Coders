@@ -11,6 +11,9 @@
     },
     "url": {
       "type": "string"
+    },
+    "lastChallenge": {
+      "type": "number"
     }
   },
   "validations": [],
