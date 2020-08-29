@@ -11,8 +11,6 @@ const Header = styled.header`
 
 export default () => {
 
-
-
     return(
         <Header>
             <div>dwdwdwdwdwdw</div>
