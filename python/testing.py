@@ -1,4 +1,8 @@
+# Opis: API sciagajace badge od uzytkownika z hackerrank
+# Wystartowanie: python testing.py
+# URL: localhost:4444/?userID=<USERID>
 import flask
+from flask import request
 import sys
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -9,8 +13,9 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
-    driver = webdriver.Chrome('/home/kml/Downloads/chromedriver_linux64/chromedriver')
-    url = 'https://www.hackerrank.com/' + str(sys.argv[1])
+    userID = request.args.get('userID', default = "kamil_wierciak99", type = str)
+    driver = webdriver.Chrome('/home/mike/testPy/chromedriver_linux64/chromedriver')
+    url = 'https://www.hackerrank.com/' + userID
     driver.get(url)
     content = driver.page_source
     soup = BeautifulSoup(content, 'html.parser')
@@ -19,4 +24,4 @@ def home():
     return str(number)
 
 
-app.run()
+app.run(host='localhost', port=4444)
