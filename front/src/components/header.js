@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom';
 
 const Header = styled.header`
     height: 4em;
@@ -15,8 +15,9 @@ export default () => {
 
     return(
         <Header>
-            <div>dwdwd</div>
             <div>dwdwdwdwdwdw</div>
+            <Link to="/">Home</Link>
+            <Link to="/animal">Zwierze</Link>
         </Header>
     );
 }
