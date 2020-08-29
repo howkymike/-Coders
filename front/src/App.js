@@ -7,6 +7,7 @@ import Footer from './components/footer';
 
 import Home from './pages/home';
 import Animal from './pages/animal';
+import User from './pages/user';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,6 +20,10 @@ const Wrapper = styled.div`
 const Main = styled.main` 
     flex: auto;
     display: flex;
+
+    & > * {
+        flex: auto;
+    }
 `;
 
 function App() {
@@ -31,6 +36,9 @@ function App() {
                 <Switch>
                     <Route path="/animal">
                         <Animal />
+                    </Route>
+                    <Route path="/user">
+                        <User />
                     </Route>
                     <Route path="/">
                         <Home />

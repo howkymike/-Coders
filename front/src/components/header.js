@@ -44,7 +44,13 @@ export default () => {
                         <Link className="nav-link" to="/">Home</Link>
                     </NavItem>
                     <NavItem>
-                        <Link className="nav-link" to="/animal">Zwierze</Link>
+                        <Link className="nav-link" to="/user">Profil</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link className="nav-link" to="/user">Wyzwania</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link className="nav-link" to="/user">Ranking</Link>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
