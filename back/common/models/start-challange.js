@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Startchallange) {
+module.exports = function(StartChallange) {
 // dodaje do tablicy currentChallenge
-
+    
 };

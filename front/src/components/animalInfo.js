@@ -12,7 +12,6 @@ const Frame = styled.div`
     border: 2px solid #000;
     border-radius: 3px;
     width: 20em;
-    margin: auto;
 `;
 
 const Img = styled.img` 
