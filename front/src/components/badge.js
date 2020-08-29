@@ -7,6 +7,8 @@ const Badge = styled.div`
     text-align: center;
     color: #fff;
     border-radius: 5px;
+    margin: 0.3em;
+    width: 100%;
 `;
 
 export default ({ children }) => {

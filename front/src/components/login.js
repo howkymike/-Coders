@@ -41,7 +41,7 @@ export default () => {
 
     return(
         <LoginBox onSubmit={ e => formSubmit(e) }>
-            { type ? "Zaloguj się!" : "Zarejestruj się!" }
+            { type ? "Log in!" : "Register!" }
             <hr />
             <Form>
                 <FormGroup>
