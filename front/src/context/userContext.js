@@ -16,8 +16,12 @@ export default ({children}) => {
         });
     }
 
+    const register = (login, password, password2) => {
+        console.log("REGISTER");
+    }
+
     return (
-      <UserContext.Provider value={{user, login}}>
+      <UserContext.Provider value={{user, login, register}}>
           {children}
       </UserContext.Provider>
     );

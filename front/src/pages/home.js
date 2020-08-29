@@ -1,19 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Login from '../components/login';
+
 const Background = styled.div`
     background-image: url("/backgwithgff.gif");
-    flex: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
 export default () => {
 
     return(
-        <Background></Background>
+        <Background>
+            <Login></Login>
+        </Background>
     );
 }
