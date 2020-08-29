@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'reactstrap';
-
-import AnimalInfo from '../components/animalInfo';
-import LastChallenges from '../components/lastChallenges';
-import Badge from '../components/badge';
 
 import { UserContext } from '../context/userContext';
 
+import Animal from '../components/animal';
+import AnimalInfo from '../components/animalInfo';
+
 export const Wrapper = styled.div`
     padding: 2em;
-
     text-align: center;
+    display: flex;
+    flex: auto;
 `;
 
 export const Header = styled.div`
@@ -21,14 +20,17 @@ export const Header = styled.div`
 
 const Background = styled.div`
     background-image: url("/piesoback.gif");
-    flex: auto;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    z-index: -1;
+    display: flex;
 `;
 
+const Flex = styled.div`  
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+`;
 
 export default () => {
 
@@ -36,18 +38,26 @@ export default () => {
 
     return(
         <Background>
-        <Wrapper>
-            <Container className="themed-container" fluid={true}>
-                <Header>
-                    <h4>Witaj {user.name}!</h4>
-                    <hr />
-                </Header>
-                <Badge>Twój pupil</Badge>
-                <AnimalInfo />
-                <Badge>Ostatnie wyzwania</Badge>
-                <LastChallenges />
-            </Container>
-        </Wrapper>
+            <Wrapper>
+                <Flex style={{justifyContent: "end"}}>
+                    <Animal />
+                </Flex>
+                <Flex style={{justifyContent: "center"}}>
+                    <AnimalInfo />
+                </Flex>
+            </Wrapper>
         </Background>
     );
 }
+
+/*
+<Container fluid={true}>
+                    <Header>
+                        <h4>Witaj {user.name}!</h4>
+                        <hr />
+                    </Header>
+                    <Badge>Twój pupil</Badge>
+                    <AnimalInfo />
+                    <Badge>Ostatnie wyzwania</Badge>
+                    <LastChallenges />
+                </Container>*/
