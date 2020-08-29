@@ -1,25 +1,14 @@
 {
-  "name": "challenges",
+  "name": "startChallange",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "type": {
-      "type": "string",
-      "required": true
-    },
-    "exp": {
+    "challengeId": {
       "type": "number",
       "required": true
-    },
-    "desc": {
-      "type": "string"
     }
   },
   "validations": [],

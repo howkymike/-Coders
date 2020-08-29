@@ -38,5 +38,17 @@
   "challenges": {
     "dataSource": "db",
     "public": true
+  },
+  "userinfo": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ranking": {
+    "dataSource": "db",
+    "public": true
+  },
+  "startChallange": {
+    "dataSource": "db",
+    "public": true
   }
 }

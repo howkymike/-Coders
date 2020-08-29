@@ -1,0 +1,26 @@
+{
+  "name": "userinfo",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "exp": {
+      "type": "number"
+    },
+    "url": {
+      "type": "string"
+    },
+    "currentChallenge": {
+      "type": "array"
+    },
+    "finishedChallenges": {
+      "type": "array"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
