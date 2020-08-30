@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import { useHistory } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 
 const LoginBox = styled.div` 
@@ -27,14 +27,25 @@ const ButtonWrapper = styled.div`
 export default () => {
     let [type, setType] = useState(true);
     let [form, setForm] = useState({ login: "", pass: "", pass2: "" });
-    let { login, register } = useContext(UserContext);
+    let { user, login, register } = useContext(UserContext);
+    let history = useHistory();
 
     const formSubmit = e => {
-        e.preventDefault();
-        if(type)
-            login(form.login, form.pass);
-        else
-            register(form.login, form.pass, form.pass2);
+        try {
+            e.preventDefault();
+            if(type) {
+                if(login(form.login, form.pass)) {
+                    history.push("/user");
+                }
+            } else {
+                if(register(form.login, form.pass, form.pass2)) {
+                    setType(true);
+                }
+            }
+                
+        } catch(e) {
+            console.log(e);
+        }
     }
 
     return(
@@ -58,11 +69,11 @@ export default () => {
                 }
                 { type ?
                     <ButtonWrapper>
-                        <Button color="success" size="lg">Login</Button>
+                        <Button color="success" size="lg" type="submit">Login</Button>
                         <Button color="danger" size="lg" onClick={ () => setType(false)}>Register</Button>
                     </ButtonWrapper> :
                     <ButtonWrapper>               
-                        <Button color="success" size="lg">Register</Button>
+                        <Button color="success" size="lg" type="submit">Register</Button>
                         <Button color="danger" size="lg" onClick={ () => setType(true)}>Login</Button>
                     </ButtonWrapper>
                 }

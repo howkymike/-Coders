@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Progress, Button } from 'reactstrap';
+import { Spinner, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import { UserContext } from '../context/userContext';
@@ -55,38 +55,89 @@ const Points = styled.div`
 
 export default () => {
 
-    let { user } = useContext(UserContext);
+    let { user, updateInfo } = useContext(UserContext);
+
+    let [loading, setLoading] = useState(true);
+    let [challenges, setChallenges] = useState([]);
+
+    let [loadingC, setLoadingC] = useState(true);
+    let [challengesC, setChallengesC] = useState([]);
+
+    useEffect( () => {
+        let promises = [];
+        (user.currentChallenge || []).forEach( value => promises.push(
+            fetch("http://127.0.0.1:5001/api/challenges/" + value).then(res => res.json())
+        ));
+        
+        Promise.all(promises).then( res => {
+            setChallenges(res);
+            setLoading(false);
+        }).catch(err => {
+            console.log(err);
+        })
+    }, [user]);
+
+    useEffect( () => {
+        let promises = [];
+        (user.finishedChallenges || []).forEach( value => promises.push(
+            fetch("http://127.0.0.1:5001/api/challenges/" + value).then(res => res.json())
+        ));
+        
+        Promise.all(promises).then( res => {
+            setChallengesC(res);
+            setLoadingC(false);
+        }).catch(err => {
+            console.log(err);
+        })
+    }, [user]);
 
     return(
         <Wrapper>
-            <h4>Welcome { user.name }!</h4>
+            <h4>Welcome { user.username }!</h4>
             <hr />
             <Badge>Your pet</Badge>
             <Info>
                 <p>
-                    Name: George
+                    Name: { user.animalName }
                 </p>
                 <p>
-                    Level: 1
+                    Level: { user.level }
                 </p>
                 <p>
-                    Experience: 10/20;
+                    Experience: { user.exp }/{ user.level * 100 };
                 </p>
             </Info>
             <Badge>Your's challenges</Badge>
-            <ChallengeList>
-                <Link to="/challenge/1111">
-                    <Challenge>
-                        <Name>Pyton tut</Name>
+            { loading ?
+                <Spinner type="grow" color="dark" /> :
+                <ChallengeList>
+                    { (challenges).map( (value, key) => (
+                        <Link to={ "/challenge/" + value.id } key={ key }>
+                            <Challenge>
+                                <Name>{ value.name }</Name>
 
-                        <Points>100 pts.</Points>
-                    </Challenge>
-                </Link>
-                <Challenge></Challenge>
-            </ChallengeList>
+                                <Points>{ value.exp } pts.</Points>
+                            </Challenge>
+                        </Link>
+                    )) }
+                </ChallengeList>
+            }
+           
             <Badge>Last completed</Badge>
-            <ChallengeList>
-            </ChallengeList>
+            { loadingC ?
+                <Spinner type="grow" color="dark" /> :
+                <ChallengeList>
+                    { (challengesC).map( (value, key) => (
+                        <Link to={ "/challenge/" + value.id } key={ key }>
+                            <Challenge>
+                                <Name>{ value.name }</Name>
+
+                                <Points>{ value.exp } pts.</Points>
+                            </Challenge>
+                        </Link>
+                    )) }
+                </ChallengeList>
+            }
             <hr />
             <Link to="/challenges">
                 <Button color="success" block>I want more</Button>

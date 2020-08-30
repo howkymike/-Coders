@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import doge from '../imgs/dogelv1.png';
+import doge2 from '../imgs/dogelv2.png';
+import doge3 from '../imgs/dogelv3.png';
+import { UserContext } from '../context/userContext';
 
 const Wrapper = styled.div` 
     width: 15em;
@@ -30,12 +33,19 @@ const Name = styled.div`
     margin: 0.5em;
 `;
 
+let doges = [
+    doge, doge2, doge3
+]
+
 export default () => {
+
+    let { user } = useContext(UserContext);
+
     return(
         <Wrapper>
-            <Img src={ doge } alt="Doge lvl. 1" />
+            <Img src={ doges[user.level - 1] } alt={`Doge lvl. ${user.level}`} />
             <Shadow />
-            <Name>George</Name>
+            <Name>{ user.animalName }</Name>
         </Wrapper>
     );
 }

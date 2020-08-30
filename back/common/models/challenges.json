@@ -20,6 +20,12 @@
     },
     "desc": {
       "type": "string"
+    },
+    "verify": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "any"
     }
   },
   "validations": [],

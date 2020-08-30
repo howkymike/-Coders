@@ -7,20 +7,47 @@
   },
   "properties": {
     "exp": {
-      "type": "number"
-    },
-    "url": {
-      "type": "string"
+      "type": "number",
+      "default": 0
     },
     "currentChallenge": {
-      "type": "array"
+      "type": ["string"],
+      "default": []
     },
     "finishedChallenges": {
-      "type": "array"
+      "type": ["string"],
+      "default": []
+    },
+    "animalName": {
+      "type": "string",
+      "default": "George"
+    },
+    "level": {
+      "type": "number",
+      "default": "1"
     }
   },
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

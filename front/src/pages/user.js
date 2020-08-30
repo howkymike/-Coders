@@ -34,8 +34,6 @@ const Flex = styled.div`
 
 export default () => {
 
-    let { user } = useContext(UserContext);
-
     return(
         <Background>
             <Wrapper>
@@ -49,15 +47,3 @@ export default () => {
         </Background>
     );
 }
-
-/*
-<Container fluid={true}>
-                    <Header>
-                        <h4>Witaj {user.name}!</h4>
-                        <hr />
-                    </Header>
-                    <Badge>Twój pupil</Badge>
-                    <AnimalInfo />
-                    <Badge>Ostatnie wyzwania</Badge>
-                    <LastChallenges />
-                </Container>*/
