@@ -25,7 +25,7 @@
       "type": "string"
     },
     "questions": {
-      "type": "any"
+      "type": "array"
     }
   },
   "validations": [],
