@@ -1,5 +1,5 @@
 # Hacknarök 2020 - George :boom: :boom: :star2:
----
+--
 
 ## O Apce
 Aplikacja ma na celu dostarczenie dodatkowej incentywy do codziennej pracy. Poprzez progresję na takiej stronie jak np. Hackerrank, czy wykonywanie tworzonych przez społeczność wyzwań, użytkownik opiekuje się swoim pupilem i stara się o jego ewolucję!
