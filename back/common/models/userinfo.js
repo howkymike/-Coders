@@ -49,7 +49,7 @@ module.exports = function(Userinfo) {
                         arr2 = arr2.filter( val => val != res.id);
                         arr.push(res.id);
                         let newExp = user.exp + res.exp;
-                        let level = Math.floor(newExp/100);
+                        let level = Math.floor(newExp/100)+1;
                         user.updateAttributes({
                             finishedChallenges: arr,
                             exp: newExp,
@@ -69,7 +69,7 @@ module.exports = function(Userinfo) {
                                 arr2 = arr2.filter( val => val != res.id);
                                 arr.push(res.id);
                                 let newExp = user.exp + res.exp;
-                                let level = Math.floor(newExp/100);
+                                let level = Math.floor(newExp/100)+1;
                                 user.updateAttributes({
                                     finishedChallenges: arr,
                                     exp: newExp,
