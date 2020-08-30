@@ -4,21 +4,64 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 
-import { Header, Wrapper } from './user';
+import { Wrapper } from './user';
 import Badge from '../components/badge';
- 
-const ChallengeWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
 
+const Background = styled.div`
+    background-image: url("/list.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+`;
+
+const Header = styled.div` 
+    background-color: #e2e2e2;
+    padding: 0.5em;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .20);
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 2em;
+`;
+
+const ChallengeList = styled.div`
+    margin-bottom: 1em;
+    display: flex;
 `;
 
 const Challenge = styled.div` 
-    width: 10em;
-    height: 10em;
-    border: 2px solid #000;
-    border-radius: 5px;
     margin: 0.5em;
+    width: 20em;
+    height: 8em;
+    background-color: #e2e2e2;
+    position: relative;
+
+    a {
+        color: #000;
+    }
+`;
+
+const Name = styled.div` 
+    height: 2em;
+    line-height: 2em;
+    background-color: #c8c8c8;
+
+`;
+
+const Points = styled.div` 
+    height: 2em;
+    line-height: 2em;
+    background-color: #c8c8c8;
+`;
+
+const Take = styled.div` 
+    height: 2em;
+    line-height: 2em;
+    background-color: #28a745;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 `;
 
 export default () => {
@@ -52,35 +95,33 @@ export default () => {
     }, []);
 
     return(
-        <Wrapper>
-            <Container>
-                <Header>
-                    <h4>Take on a challange</h4>
-                    <hr />
-                </Header>
-                { loading ?
-                    <Spinner type="grow" color="dark" /> :
-                    <div>
-                        { categories.map( (value, key) => (
-                            <div key={ key }>
-                                <Badge>{ value }</Badge>
-                                <ChallengeWrapper>
-                                    { challenges[value].map( (chall, index) => (
-                                        <Challenge key={ index }>
-                                            { chall.name }
-                                        
-                                        </Challenge>
-                                    )) }
-                                </ChallengeWrapper>
-                            </div>
-                        )) }
-                    </div>
-                }
-                <hr />
-                <Link to="/challenges/add">
-                    <Button color="primary" size="lg" block>Zaproponuj nowe wyzwanie</Button>
-                </Link>
-            </Container>
-        </Wrapper>
+        <Background>
+            <Wrapper>
+                <Container>
+                    <Header>Take on a challenge</Header>
+
+                    { loading ?
+                        <Spinner type="grow" color="dark" /> :
+                        <div>
+                            { categories.map( (category, key) => (
+                                <div key={ key }>
+                                    <Badge>{ category }</Badge>
+                                    <ChallengeList>
+                                        { challenges[category].map( (challenge, index) => (
+                                            <Challenge key={ index }>
+                                                <Name>{ challenge.name }</Name>
+
+                                                <Points>{ challenge.exp }</Points>
+                                                <Link to={ "/challenge/" + challenge.id }><Take>View More</Take></Link>
+                                            </Challenge>
+                                        )) }
+                                    </ChallengeList>
+                                </div>
+                            )) }
+                        </div>
+                    }
+                </Container>
+            </Wrapper>
+        </Background>
     );
 }

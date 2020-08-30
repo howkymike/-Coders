@@ -11,6 +11,7 @@ import Animal from './pages/animal';
 import User from './pages/user';
 import Challenges from './pages/challenges';
 import AddChallenge from './pages/addChallenge';
+import Challenge from './pages/challenge';
 
 import UserProvider from './context/userContext';
 
@@ -53,6 +54,7 @@ function App() {
                         <Route path="/challenges">
                             <Challenges />
                         </Route>
+                        <Route path="/challenge/:id" children={<Challenge />} />
                         <Route path="/">
                             <Home />
                         </Route>

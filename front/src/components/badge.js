@@ -7,7 +7,7 @@ const Badge = styled.div`
     text-align: center;
     color: #fff;
     border-radius: 5px;
-    margin: 0.3em;
+    margin: 0.3em 0;
     width: 100%;
 `;
 
