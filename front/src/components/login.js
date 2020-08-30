@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
-import { UserContext } from '../context/userContext';
+import { UserContext, MessageContext } from '../context/userContext';
 
 const LoginBox = styled.div` 
     width: 30em;
@@ -11,8 +11,6 @@ const LoginBox = styled.div`
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .20);
     border-radius: 5px;
     padding: 1em;
-
-    
 `;
 
 const ButtonWrapper = styled.div` 
@@ -30,15 +28,19 @@ export default () => {
     let { user, login, register } = useContext(UserContext);
     let history = useHistory();
 
+    let { msg } = useContext(MessageContext);
+
     const formSubmit = e => {
         try {
             e.preventDefault();
             if(type) {
                 if(login(form.login, form.pass)) {
+                    msg("success", "Logged successfuly");
                     history.push("/user");
                 }
             } else {
                 if(register(form.login, form.pass, form.pass2)) {
+                    msg("success", "Registered successfuly");
                     setType(true);
                 }
             }

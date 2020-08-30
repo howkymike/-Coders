@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 
 export const UserContext = React.createContext();
 
+export const MessageContext = React.createContext();
+
 export default ({children}) => {
     
     let [user, setUser] = useState({ logged: false });
+    let [messages, setMessages] = useState([]);
 
     const login = async (login, password) => {
         try {
@@ -91,9 +94,22 @@ export default ({children}) => {
         }
     }
 
+    const msg = (type, text) => {
+        setMessages([
+            ...messages,
+            { type, text }
+        ]);
+    }
+
+    const del = (index) => {
+        setMessages(messages.filter((val, key) => key !== index));
+    }
+
     return (
       <UserContext.Provider value={{user, login, register, updateInfo}}>
-          {children}
+          <MessageContext.Provider value={{ messages, msg, del }}>
+            {children}
+          </MessageContext.Provider>
       </UserContext.Provider>
     );
 }

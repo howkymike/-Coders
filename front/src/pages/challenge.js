@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
 import { Wrapper } from './user';
-import { UserContext } from '../context/userContext';
+import { UserContext, MessageContext } from '../context/userContext';
 
 const Background = styled.div`
     background-image: url("/list.png");
@@ -38,6 +38,7 @@ export default () => {
     let [answers, setAnswers] = useState([]);
 
     let { user, updateInfo } = useContext(UserContext);
+    let { msg } = useContext(MessageContext);
 
     let { id } = useParams();
     let history = useHistory();
@@ -56,14 +57,17 @@ export default () => {
 
     const takeChallenge = () => {
         fetch(`http://127.0.0.1:5001/api/userinfos/addchallenge?challengeId=${id}&userId=${user.id}`).then(res => res.json()).then(json => {
-            updateInfo().then( () => history.push("/user"));
+            updateInfo().then( () => { msg("success", "Challenge taken"); history.push("/user") });
         });
     }
 
 
     const checkProgress = () => {
         fetch(`http://127.0.0.1:5001/api/userinfos/verifyChallenge?challengeId=${id}&userId=${user.id}&verification=${JSON.stringify(answers)}`).then(res => res.json()).then(json => {
-            updateInfo().then( () => history.push("/user"));
+            if(json.ok == "true")
+                updateInfo().then( () => { msg("success", "Challenge done"); history.push("/user") });
+            else
+                msg("error", "Try again");
         });
     }
 
