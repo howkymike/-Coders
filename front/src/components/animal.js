@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import doge from '../imgs/dogelv1.png';
 import doge2 from '../imgs/dogelv2.png';
 import doge3 from '../imgs/dogelv3.png';
+import doge4 from '../imgs/dogelv4.png';
 import { UserContext } from '../context/userContext';
 
 const Wrapper = styled.div` 
@@ -34,7 +35,7 @@ const Name = styled.div`
 `;
 
 let doges = [
-    doge, doge2, doge3
+    doge, doge2, doge3, doge4
 ]
 
 export default () => {
