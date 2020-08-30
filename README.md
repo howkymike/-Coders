@@ -1,14 +1,14 @@
-# Hacknark
+# Hacknarök 2020 - George
 ---
 
 ## O Apce
 Aplikacja ma na celu dostarczenie dodatkowej incentywy do codziennej pracy. Poprzez progresję na takiej stronie jak np. Hackerrank, czy wykonywanie tworzonych przez społeczność wyzwań, użytkownik opiekuje się swoim pupilem i stara się o jego ewolucję!
 
-## Features
+## Funkcjonalnośći
 
-- ✅ **Veryfikacja**: Możesz łatwo sprawdzać patronów 👉🏾 [Wejdz na apke](http://localhost:3000/);
-
-- ✅ **Logowanie**: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 👉🏾 [Zaloguj się](http://localhost:3000/logowanie);
+- ✅ **Własne zwierzątkowo**: Opiekujesz się włąsnym ziwerzątkiem i rywalizujesz ze znajomymy 👉🏾 [Zwierzątko](http://localhost:3000/logowanie);
+- ✅ **Veryfikacja**: Zadania są weryfikowania przez zaufanych partnerów, np, Hackerrank 👉🏾 [Partnerzy](https://www.hackerrank.com/);
+- ✅ **Bezpieczeństwo**: Aplikacja posiada zaawanasowane metody bezpieczeństwa wraż z szyfrowaną i zahashowaną baza danych, dzieki temu nikt nigdy nie ukradnie twojego konta!!! 👉🏾 [Zaloguj się](http://localhost:3000/logowanie);
 
 <br/>
 
