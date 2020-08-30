@@ -20,6 +20,7 @@ def home():
     content = driver.page_source
     soup = BeautifulSoup(content, 'html.parser')
     stars = soup.find_all('svg', class_="badge-star")
+    driver.close()
     number = len(stars)
     return str(number)
 
