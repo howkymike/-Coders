@@ -13,13 +13,16 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home():
+    options = webdriver.ChromeOptions()
+    options.add_argument("headless")
     userID = request.args.get('userID', default = "kamil_wierciak99", type = str)
-    driver = webdriver.Chrome('/home/kml/Downloads/chromedriver_linux64/chromedriver')
+    driver = webdriver.Chrome('/home/kml/Downloads/chromedriver_linux64/chromedriver', chrome_options=options)
     url = 'https://www.hackerrank.com/' + userID
     driver.get(url)
     content = driver.page_source
     soup = BeautifulSoup(content, 'html.parser')
     stars = soup.find_all('svg', class_="badge-star")
+    #driver.close()
     number = len(stars)
     return str(number)
 
