@@ -12,6 +12,11 @@ Aplikacja ma na celu dostarczenie dodatkowej incentywy do codziennej pracy. Popr
 
 <br/>
 
+## Zdjęcia
+<img src="screenshots/ss1.png" width="600">
+<img src="screenshots/ss2.png" width="600">
+<img src="screenshots/ss3.png" width="600">
+
 
 ## Zespół
 
