@@ -14,7 +14,7 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 def home():
     userID = request.args.get('userID', default = "kamil_wierciak99", type = str)
-    driver = webdriver.Chrome('/home/mike/testPy/chromedriver_linux64/chromedriver')
+    driver = webdriver.Chrome('/home/kml/Downloads/chromedriver_linux64/chromedriver')
     url = 'https://www.hackerrank.com/' + userID
     driver.get(url)
     content = driver.page_source

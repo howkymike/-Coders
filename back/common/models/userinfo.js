@@ -1,5 +1,7 @@
 'use strict';
 
+const request = require('request');
+
 module.exports = function(Userinfo) {
     delete Userinfo.validations.email;
 
@@ -55,9 +57,10 @@ module.exports = function(Userinfo) {
                     cb(null, "true")
                 } else cb(null, "false");
             } else if(res.verify == "hack") {
-                fetch("http://127.0.0.1:80/?username=" + hack).then(res => res.text()).then(text => {
-                    console.log(text)
+                request("http://127.0.0.1:4444/?username=" + hack, function(error, response, body){
+                    console.log(body)
                 })
+            
             } else cb(null, "false");
         })       
     }

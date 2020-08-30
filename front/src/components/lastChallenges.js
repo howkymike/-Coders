@@ -13,7 +13,7 @@ export default () => {
     let [challenges, setChallenges] = useState([]);
 
     useEffect( () => {
-        fetch("http://127.0.0.1:5001/api/challenges/").then( res => {
+        fetch("http://127.0.0.1:5000/api/challenges/").then( res => {
             return res.json();
         }).then(json => {
             setChallenges(

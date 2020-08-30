@@ -44,7 +44,7 @@ export default () => {
     const addChallenge = e => {
         e.preventDefault();
         console.log(JSON.stringify(form));
-        fetch("http://127.0.0.1:5001/api/challenges/addChallenge?form=" + JSON.stringify(form)).then(res => res.json()).then(json => {
+        fetch("http://127.0.0.1:5000/api/challenges/addChallenge?form=" + JSON.stringify(form)).then(res => res.json()).then(json => {
             console.log(json);
         });
 

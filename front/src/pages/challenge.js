@@ -45,7 +45,7 @@ export default () => {
     let history = useHistory();
 
     useEffect( () => {
-        fetch("http://127.0.0.1:5001/api/challenges/" + id).then( res => {
+        fetch("http://127.0.0.1:5000/api/challenges/" + id).then( res => {
             return res.json();
         }).then( json => {
             console.log(json);
@@ -57,14 +57,14 @@ export default () => {
     }, [id]);
 
     const takeChallenge = () => {
-        fetch(`http://127.0.0.1:5001/api/userinfos/addchallenge?challengeId=${id}&userId=${user.id}`).then(res => res.json()).then(json => {
+        fetch(`http://127.0.0.1:5000/api/userinfos/addchallenge?challengeId=${id}&userId=${user.id}`).then(res => res.json()).then(json => {
             updateInfo().then( () => { msg("success", "Challenge taken"); history.push("/user") });
         });
     }
 
 
     const checkProgress = () => {
-        fetch(`http://127.0.0.1:5001/api/userinfos/verifyChallenge?challengeId=${id}&userId=${user.id}&verification=${JSON.stringify(answers)}&hack=${hack}`).then(res => res.json()).then(json => {
+        fetch(`http://127.0.0.1:5000/api/userinfos/verifyChallenge?challengeId=${id}&userId=${user.id}&verification=${JSON.stringify(answers)}&hack=${hack}`).then(res => res.json()).then(json => {
             if(json.ok === "true")
                 updateInfo().then( () => { msg("success", "Challenge done"); history.push("/user") });
             else

@@ -66,7 +66,7 @@ export default () => {
     useEffect( () => {
         let promises = [];
         (user.currentChallenge || []).forEach( value => promises.push(
-            fetch("http://127.0.0.1:5001/api/challenges/" + value).then(res => res.json())
+            fetch("http://127.0.0.1:5000/api/challenges/" + value).then(res => res.json())
         ));
         
         Promise.all(promises).then( res => {
@@ -80,7 +80,7 @@ export default () => {
     useEffect( () => {
         let promises = [];
         (user.finishedChallenges || []).forEach( value => promises.push(
-            fetch("http://127.0.0.1:5001/api/challenges/" + value).then(res => res.json())
+            fetch("http://127.0.0.1:5000/api/challenges/" + value).then(res => res.json())
         ));
         
         Promise.all(promises).then( res => {

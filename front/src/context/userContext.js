@@ -11,7 +11,7 @@ export default ({children}) => {
 
     const login = async (login, password) => {
         try {
-            let res = await fetch("http://127.0.0.1:5001/api/userinfos/login",{
+            let res = await fetch("http://127.0.0.1:5000/api/userinfos/login",{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export default ({children}) => {
             let json = await res.json();
 
             console.log(json.id);
-            let res2 = await fetch(`http://127.0.0.1:5001/api/userinfos/${json.userId}?access_token=${json.id}`)
+            let res2 = await fetch(`http://127.0.0.1:5000/api/userinfos/${json.userId}?access_token=${json.id}`)
                     
            
             let json2 = await res2.json();
@@ -49,7 +49,7 @@ export default ({children}) => {
         setTimeout( async () => {
             if(user.logged) {
                 try {
-                    let res = await fetch("http://127.0.0.1:5001/api/userinfos/" + user.id)
+                    let res = await fetch("http://127.0.0.1:5000/api/userinfos/" + user.id)
                     let json = await res.json();
         
                     setUser({
@@ -71,7 +71,7 @@ export default ({children}) => {
             if(password2 !== password) 
                 throw new Error("Diffrent passwords");
 
-            let res = await fetch("http://127.0.0.1:5001/api/userinfos", {
+            let res = await fetch("http://127.0.0.1:5000/api/userinfos", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -38,7 +38,7 @@ export default ({ id }) => {
 
     useEffect(() => {
         // zapytanie api;
-        fetch("http://127.0.0.1:5001/api/challenges/" + id).then( res => {
+        fetch("http://127.0.0.1:5000/api/challenges/" + id).then( res => {
             console.log(res);
             return res.json();
         }).then( json => {
