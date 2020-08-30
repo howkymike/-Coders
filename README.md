@@ -15,10 +15,9 @@ Aplikacja ma na celu dostarczenie dodatkowej incentywy do codziennej pracy. Popr
 
 ## Zespół
 
-Projekt ten powstał dzięki tym niesamowitym ludziom! ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Projekt ten powstał dzięki tym niesamowitym ludziom!:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Meqeq"><img src="https://avatars0.githubusercontent.com/u/26548476?s=400&v=4" width="100px;" alt="Dawid"/><br /><sub><b>Dawid</b></sub></a><br /><a href="https://github.com/Meqeq"title="Code">💻</a></td>
@@ -27,5 +26,3 @@ Projekt ten powstał dzięki tym niesamowitym ludziom! ([emoji key](https://allc
     <td align="center"><a href="https://github.com/userbakoo"><img src="https://avatars3.githubusercontent.com/u/65188803?s=400&v=4" width="100px;" alt="Bartosz"/><br /><sub><b>Bartosz</b></sub></a><br /><a href="https://github.com/userbakoo"title="Design">🎨</a></td>
   </tr>
 </table>
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
