@@ -25,27 +25,28 @@ const ButtonWrapper = styled.div`
 export default () => {
     let [type, setType] = useState(true);
     let [form, setForm] = useState({ login: "", pass: "", pass2: "" });
-    let { user, login, register } = useContext(UserContext);
+    let { login, register } = useContext(UserContext);
     let history = useHistory();
 
     let { msg } = useContext(MessageContext);
 
-    const formSubmit = e => {
+    const formSubmit = async (e) => {
+        e.preventDefault();
         try {
-            e.preventDefault();
             if(type) {
-                if(login(form.login, form.pass)) {
+                if(await login(form.login, form.pass)) {
                     msg("success", "Logged successfuly");
                     history.push("/user");
                 }
             } else {
-                if(register(form.login, form.pass, form.pass2)) {
+                if(await register(form.login, form.pass, form.pass2)) {
                     msg("success", "Registered successfuly");
                     setType(true);
                 }
             }
                 
         } catch(e) {
+            msg("error", "Bad credentials");
             console.log(e);
         }
     }

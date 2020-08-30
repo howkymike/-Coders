@@ -13,7 +13,7 @@ import Challenges from '../pages/challenges';
 import AddChallenge from '../pages/addChallenge';
 import Challenge from '../pages/challenge';
 
-import UserProvider, { MessageContext } from '../context/userContext';
+import { MessageContext } from '../context/userContext';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

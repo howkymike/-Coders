@@ -1,5 +1,4 @@
 import React from 'react';
-import GlobalStyle from './components/globalStyle';
 import UserProvider from './context/userContext';
 import Wrapper from './components/wrapper';
 

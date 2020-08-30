@@ -55,7 +55,7 @@ const Points = styled.div`
 
 export default () => {
 
-    let { user, updateInfo } = useContext(UserContext);
+    let { user } = useContext(UserContext);
 
     let [loading, setLoading] = useState(true);
     let [challenges, setChallenges] = useState([]);

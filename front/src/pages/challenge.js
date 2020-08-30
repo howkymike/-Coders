@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Container, Spinner, Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
+import { Container, Spinner, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import styled from 'styled-components';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
@@ -36,6 +36,7 @@ export default () => {
     let [loading, setLoading] = useState(true);
     let [challenge, setChallenge] = useState({});
     let [answers, setAnswers] = useState([]);
+    let [hack, setHack] = useState("");
 
     let { user, updateInfo } = useContext(UserContext);
     let { msg } = useContext(MessageContext);
@@ -53,7 +54,7 @@ export default () => {
         }).catch(err => {
             console.log(err);
         });
-    }, []);
+    }, [id]);
 
     const takeChallenge = () => {
         fetch(`http://127.0.0.1:5001/api/userinfos/addchallenge?challengeId=${id}&userId=${user.id}`).then(res => res.json()).then(json => {
@@ -63,8 +64,8 @@ export default () => {
 
 
     const checkProgress = () => {
-        fetch(`http://127.0.0.1:5001/api/userinfos/verifyChallenge?challengeId=${id}&userId=${user.id}&verification=${JSON.stringify(answers)}`).then(res => res.json()).then(json => {
-            if(json.ok == "true")
+        fetch(`http://127.0.0.1:5001/api/userinfos/verifyChallenge?challengeId=${id}&userId=${user.id}&verification=${JSON.stringify(answers)}&hack=${hack}`).then(res => res.json()).then(json => {
+            if(json.ok === "true")
                 updateInfo().then( () => { msg("success", "Challenge done"); history.push("/user") });
             else
                 msg("error", "Try again");
@@ -78,12 +79,14 @@ export default () => {
     }
 
     const completed = id => {
-        return user.finishedChallenges.findIndex(val => { console.log(val, id); return val === id}) !== -1
+        return user.finishedChallenges.findIndex(val => { return val === id}) !== -1
     }
 
     const active = id => {
-        return user.currentChallenge.findIndex(val => { console.log(val, id); return val === id}) !== -1
+        return user.currentChallenge.findIndex(val => { return val === id}) !== -1
     }
+
+    console.log(challenge);
 
     return(
         <Background>
@@ -113,6 +116,20 @@ export default () => {
                                                 </FormGroup>
                                             ))}
                                             
+                                        </Form>
+                                    </div>
+                                }
+
+                                { !completed(id) && active(id) && challenge.verify === "hack" &&
+                                    <div>
+                                        <Form>
+                                            <h5>Give your hackkerrank account name</h5>
+                                                <FormGroup row>
+                                                    <Label for={ "ans" } sm={3}>Name</Label>
+                                                    <Col sm={9}>
+                                                        <Input type="text" id={ "ans" } placeholder="..." value={ hack } onChange={ e => setHack(e.target.value) }/>
+                                                    </Col>
+                                                </FormGroup>
                                         </Form>
                                     </div>
                                 }

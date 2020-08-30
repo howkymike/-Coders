@@ -41,7 +41,7 @@ export default ({children}) => {
             });
             return true;
         } catch(e) {
-            throw e;
+            return Promise.reject(new Error(400));
         }
     }
 
@@ -67,11 +67,10 @@ export default ({children}) => {
     }
 
     const register = async (login, password, password2) => {
-        if(password2 != password) 
-            throw new Error("Diffrent passwords");
-
         try {
-            console.log("DDDDDD");
+            if(password2 !== password) 
+                throw new Error("Diffrent passwords");
+
             let res = await fetch("http://127.0.0.1:5001/api/userinfos", {
                 method: 'POST',
                 headers: {
@@ -86,9 +85,7 @@ export default ({children}) => {
             if(res.status !== 200) 
                 throw new Error("Cant register");
             
-            let json = await res.json();
-
-            return true;
+            Promise.resolve(true);
         } catch(e) {
             throw e;
         }

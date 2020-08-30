@@ -28,7 +28,7 @@ module.exports = function(Userinfo) {
         returns: {arg: 'ok', type: 'string'}
     });
 
-    Userinfo.verifyChallenge = (challengeId, userId, verification, cb) => {
+    Userinfo.verifyChallenge = (challengeId, userId, hack, verification, cb) => {
         
         Userinfo.app.models.Challenges.findById(challengeId).then(res => {
             if(res.verify == "question") {
@@ -54,13 +54,17 @@ module.exports = function(Userinfo) {
                     }); 
                     cb(null, "true")
                 } else cb(null, "false");
+            } else if(res.verify == "hack") {
+                fetch("http://127.0.0.1:80/?username=" + hack).then(res => res.text()).then(text => {
+                    console.log(text)
+                })
             } else cb(null, "false");
         })       
     }
 
     Userinfo.remoteMethod("verifyChallenge", {
         http: { verb: "GET" },
-        accepts: [{arg: "challengeId", type: 'string'}, { arg: "userId", type: "string" }, {arg:"verification", type:"any"}],
+        accepts: [{arg: "challengeId", type: 'string'}, { arg: "userId", type: "string" }, { arg: "hack", type: "string" }, {arg:"verification", type:"any"}],
         returns: {arg: 'ok', type: 'string'}
     })
 };

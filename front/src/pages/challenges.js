@@ -93,7 +93,7 @@ export default () => {
             console.log(err);
         });
 
-        
+
     }, []);
 
     return(
@@ -122,6 +122,9 @@ export default () => {
                             )) }
                         </div>
                     }
+                    <Link to="/challenges/add">
+                        <Button color="primary" block>Add new challenge</Button>
+                    </Link>
                 </Container>
             </Wrapper>
         </Background>

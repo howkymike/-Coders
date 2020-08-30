@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-import { UserContext } from '../context/userContext';
 
 import Animal from '../components/animal';
 import AnimalInfo from '../components/animalInfo';
