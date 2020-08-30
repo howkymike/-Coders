@@ -58,7 +58,21 @@ module.exports = function(Userinfo) {
                 } else cb(null, "false");
             } else if(res.verify == "hack") {
                 request("http://127.0.0.1:4444/?username=" + hack, function(error, response, body){
-                    console.log(body)
+                    if(!err) {
+                        if(parseInt(body) > 10) {
+                            Userinfo.findById(userId).then(user => {
+                                let arr = user.finishedChallenges;
+                                let arr2 = user.currentChallenge;
+                                arr2 = arr2.filter( val => val != res.id);
+                                arr.push(res.id);
+                                user.updateAttributes({
+                                    finishedChallenges: arr,
+                                    exp: user.exp + res.exp,
+                                    currentChallenge: arr2
+                                });
+                            }); 
+                        }
+                    }
                 })
             
             } else cb(null, "false");
