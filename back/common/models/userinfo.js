@@ -58,7 +58,8 @@ module.exports = function(Userinfo) {
                 } else cb(null, "false");
             } else if(res.verify == "hack") {
                 request("http://127.0.0.1:4444/?username=" + hack, function(error, response, body){
-                    if(!err) {
+                    if(!error) {
+                        console.log(body);
                         if(parseInt(body) > 10) {
                             Userinfo.findById(userId).then(user => {
                                 let arr = user.finishedChallenges;
