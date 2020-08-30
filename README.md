@@ -18,7 +18,7 @@ Aplikacja ma na celu dostarczenie dodatkowej incentywy do codziennej pracy. Popr
 <img src="screenshots/ss3.png" width="600">
 
 ## Bądźcie czujni!
-Niestety pełna wersja aplikacji nie jest jeszcze gotowana, ale wkrótce nastąpi jej premiera także **stay tuned** !! :collision::collision:
+Niestety pełna wersja aplikacji nie jest jeszcze gotowa, ale wkrótce nastąpi jej premiera także **stay tuned** !! :collision::collision:
 
 
 
